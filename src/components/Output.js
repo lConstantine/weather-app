@@ -1,21 +1,8 @@
 import React, { useState } from 'react'
-import Now from './Now'
+import Current from './Current'
 import Forecast from "./Forecast";
 
-const Output = ({
-  weather,
-  forecast,
-  loading,
-  forecastsPerPage,
-  totalForecasts,
-  paginate,
-}) => {
-  const [display, setDisplay] = useState("now");
-
-  if (loading) {
-    return <h1>Loading...</h1>;
-  }
-
+const Output = ({ weather, forecast, loading }) => {
   const convertTimestamp = (timestamp) => {
     let d = new Date(timestamp * 1000); // Convert the passed timestamp to milliseconds
     let yyyy = d.getFullYear();
@@ -66,29 +53,47 @@ const Output = ({
     return allDirections[dIndex];
   };
 
+  //Pagination
+  const [currentPage, setCurrentPage] = useState(1);
+  const [forecastsPerPage] = useState(8);
+
+  const indexOfLastForecast = currentPage * forecastsPerPage;
+  const indexOfFirstForecast = indexOfLastForecast - forecastsPerPage;
+  const currentForecasts = forecast.slice(
+    indexOfFirstForecast,
+    indexOfLastForecast
+  );
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  /* if (loading || !weather || !forecast) {
+    return <h1>Loading...</h1>;
+  } */
+
   return (
-    <div>
-      {display === "now" && (
-        <Now
-          weather={weather}
-          convertTimestamp={convertTimestamp}
-          windDirection={windDirection}
-          setDisplay={setDisplay}
-        />
-      )}
-      {display === "forecast" && (
-        <Forecast
-          weather={weather}
-          forecast={forecast}
-          convertTimestamp={convertTimestamp}
-          windDirection={windDirection}
-          setDisplay={setDisplay}
-          forecastsPerPage={forecastsPerPage}
-          totalForecasts={totalForecasts}
-          paginate={paginate}
-        />
-      )}
-    </div>
+      <div className="wrapper">
+        <div className="leftContent">
+
+          <Current
+            weather={weather}
+            convertTimestamp={convertTimestamp}
+            windDirection={windDirection}
+          />
+        </div>
+        <div className="rightContent">
+
+          <Forecast
+            weather={weather}
+            forecast={currentForecasts}
+            convertTimestamp={convertTimestamp}
+            windDirection={windDirection}
+            forecastsPerPage={forecastsPerPage}
+            totalForecasts={forecast.length}
+            paginate={paginate}
+          />
+        </div>
+      </div>
+
   );
 };
 

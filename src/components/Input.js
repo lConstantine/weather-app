@@ -8,7 +8,7 @@ const Input = ({ setLocation }) => {
   };
 
   return (
-    <div>
+    <div className="input">
       <input
         onChange={(e) => setCity(e.target.value)}
         value={city}

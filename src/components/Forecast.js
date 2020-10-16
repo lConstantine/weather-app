@@ -6,26 +6,23 @@ const Forecast = ({
   forecast,
   convertTimestamp,
   windDirection,
-  setDisplay,
   forecastsPerPage,
   totalForecasts,
   paginate,
 }) => {
 
+
+
+  if (!weather) {
+    return (
+      <h2>Loading...</h2>
+    )
+  }
+
   return (
     <div>
-      {forecast && (
         <div>
-          <button
-            onClick={(e) => {
-              setDisplay("now");
-            }}
-          >
-            Show Weather Now
-          </button>
-          <br />
-          <br />
-          Weather forecast in {weather.name}, {weather.sys.country} at:
+          {`Weather forecast in ${weather.name}, ${weather.sys.country} at:`}
           <br />
           <br />
           <ul>
@@ -57,7 +54,6 @@ const Forecast = ({
             ))}
           </ul>
         </div>
-      )}
       <Pagination
         forecastsPerPage={forecastsPerPage}
         totalForecasts={totalForecasts}

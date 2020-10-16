@@ -17,41 +17,32 @@ const App = () => {
 
 
   useEffect(() => {
+
     const fetchData = async () => {
       setLoading(true);
       await axios(urlWeather).then((resp) => setWeather(resp.data));
       await axios(urlForecast).then((resp) => setForecast(resp.data.list));
       setLoading(false);
     };
-    fetchData();
+
+    fetchData()
+
+
   }, [location, urlWeather, urlForecast]);
 
-  const [currentPage, setCurrentPage] = useState(1);
-  const [forecastsPerPage] = useState(10);
-
-  //Pagination
-
-  const indexOfLastForecast = currentPage * forecastsPerPage;
-  const indexOfFirstForecast = indexOfLastForecast - forecastsPerPage;
-  const currentForecasts = forecast.slice(
-    indexOfFirstForecast,
-    indexOfLastForecast
-  );
-
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
   return (
-    <div>
-      <div>Weather App:</div>
-      <Input setLocation={setLocation} /> <br />
-      <Output
-        weather={weather}
-        forecast={currentForecasts}
-        loading={loading}
-        forecastsPerPage={forecastsPerPage}
-        totalForecasts={forecast.length}
-        paginate={paginate}
-      />
+    <div className="container">
+      <div className="header" >
+        <div className="logo">Weather App</div>
+        <Input  setLocation={setLocation} />
+      </div>
+      <div className="content">
+        <Output
+          weather={weather}
+          forecast={forecast}
+          loading={loading}
+        />
+      </div>
     </div>
   );
 };
