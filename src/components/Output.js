@@ -71,19 +71,22 @@ const Output = ({ weather, forecast, loading }) => {
   } */
 
   return (
-      <div className="wrapper">
-        <div className="leftContent">
 
+      <div className="wrapper">
+
+        <div className="leftContent">
           <Current
             weather={weather}
+            loading={loading}
             convertTimestamp={convertTimestamp}
             windDirection={windDirection}
           />
         </div>
-        <div className="rightContent">
 
+        <div className="rightContent">
           <Forecast
             weather={weather}
+            loading={loading}
             forecast={currentForecasts}
             convertTimestamp={convertTimestamp}
             windDirection={windDirection}

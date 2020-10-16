@@ -4,6 +4,7 @@ import Pagination from './Pagination'
 const Forecast = ({
   weather,
   forecast,
+  loading,
   convertTimestamp,
   windDirection,
   forecastsPerPage,
@@ -11,9 +12,7 @@ const Forecast = ({
   paginate,
 }) => {
 
-
-
-  if (!weather) {
+  if (loading || !weather) {
     return (
       <h2>Loading...</h2>
     )
@@ -21,20 +20,17 @@ const Forecast = ({
 
   return (
     <div>
+
         <div>
-          {`Weather forecast in ${weather.name}, ${weather.sys.country} at:`}
-          <br />
-          <br />
+          <h2 id="FH">{`Weather forecast in ${weather.name}, ${weather.sys.country} at:`}</h2>
           <ul>
             {forecast.map((it, idx) => (
               <li key={idx + 1}>
                 {convertTimestamp(it.dt)}
-                <br />
-                <br />
                 <h1>{it.weather[0].main}</h1>
-                <h6>{it.weather[0].description}</h6>
+                <h4>{it.weather[0].description}</h4>
                 <br />
-                <p>{`Temperature: ${it.main.temp} °C`}</p>
+                <p>{`Temperature: ${(it.main.temp).toFixed(1)} °C`}</p>
                 <p>{`Wind: ${windDirection(
                   it.wind.deg
                 )} ${it.wind.speed.toFixed(1)} m/s`}</p>
@@ -54,11 +50,13 @@ const Forecast = ({
             ))}
           </ul>
         </div>
+
       <Pagination
         forecastsPerPage={forecastsPerPage}
         totalForecasts={totalForecasts}
         paginate={paginate}
       />
+
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import './App.css';
+import './index.css'
 import Input from './components/Input'
 import Output from './components/Output'
 
@@ -32,10 +33,12 @@ const App = () => {
 
   return (
     <div className="container">
+
       <div className="header" >
-        <div className="logo">Weather App</div>
+        <h1 className="logo">Weather App</h1>
         <Input  setLocation={setLocation} />
       </div>
+
       <div className="content">
         <Output
           weather={weather}

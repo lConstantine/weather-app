@@ -1,13 +1,18 @@
 import React from 'react'
 
-const Current = ({ weather, convertTimestamp, windDirection, setDisplay }) => {
+const Current = ({ weather, convertTimestamp, windDirection, loading }) => {
+
+  if (loading || !weather) {
+    return (
+      <h2>Loading...</h2>
+    )
+  }
+
   return (
     <div>
-      {weather && (
+
         <div>
-          Weather in {weather.name}, {weather.sys.country} now:
-          <br />
-          <br />
+          <h2 id="CH">Weather in {weather.name}, {weather.sys.country} now:</h2>
           <h1>{weather.weather[0].main}</h1>
           <h6>{weather.weather[0].description}</h6>
           <br />
@@ -33,7 +38,7 @@ const Current = ({ weather, convertTimestamp, windDirection, setDisplay }) => {
           <p>{`Visibility: ${((weather.visibility / 1000).toFixed(1) == 10.0)
           ? 10 : (weather.visibility / 1000).toFixed(1)} km`}</p>
         </div>
-      )}
+
     </div>
   );
 };
