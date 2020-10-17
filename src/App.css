@@ -91,3 +91,8 @@ p {
   margin-bottom: 50px;
   border-bottom: solid 1px black;
 }
+
+.pagination {
+  position: sticky;
+  bottom: 0;
+}
