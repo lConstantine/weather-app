@@ -40,11 +40,14 @@
 
 .pageList {
   display: flex;
+  margin: 0 20% 0 20%;
   justify-content: space-around;
-  background-color: rgb(226, 223, 223);
+  background-color: white;
+  border-radius: 15px;
   margin-bottom: 15px;
   height: 25px;
   align-items: center;
+  list-style: none;
 }
 
 ul {

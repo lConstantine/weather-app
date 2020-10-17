@@ -7,7 +7,7 @@ import Output from './components/Output'
 
 
 const App = () => {
-  const [weather, setWeather] = useState(null);
+  const [weather, setWeather] = useState();
   const [forecast, setForecast] = useState([]);
   const [location, setLocation] = useState("Moscow");
   const [loading, setLoading] = useState(false);
@@ -18,7 +18,7 @@ const App = () => {
 
 
   useEffect(() => {
-
+    
     const fetchData = async () => {
       setLoading(true);
       await axios(urlWeather).then((resp) => setWeather(resp.data));

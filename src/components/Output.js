@@ -52,7 +52,8 @@ const Output = ({ weather, forecast, loading }) => {
     let dIndex = parseInt(degrees / 22.5);
     return allDirections[dIndex];
   };
-
+  console.log('weather', weather)
+  console.log('forecast', forecast)
   //Pagination
   const [currentPage, setCurrentPage] = useState(1);
   const [forecastsPerPage] = useState(8);
@@ -65,10 +66,6 @@ const Output = ({ weather, forecast, loading }) => {
   );
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
-  /* if (loading || !weather || !forecast) {
-    return <h1>Loading...</h1>;
-  } */
 
   return (
 
