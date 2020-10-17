@@ -20,7 +20,7 @@
   height: inherit;
   display: flex;
   background-color: rgb(224, 255, 255);
-  font-size: x-large;
+  font-size: 3vh;
 }
 
 .leftContent {
