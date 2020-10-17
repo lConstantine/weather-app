@@ -1,26 +1,27 @@
 .container {
-  height: inherit;
-  margin: 2px;
+
   border: solid 1px rgb(95, 158, 160);
+  background-color: red;
 }
 
 .header {
-  height: 30%;
+  height: 7%;
   display: flex;
   justify-content: space-around;
   padding: 20px;
-  background-color: rgb(95, 158, 160);
+  background-color: rgb(100, 149, 237);
 }
 
 .content {
-  height: 90%;
+  background-color: green;
 }
 
 .wrapper {
-  height: inherit;
+  height: 89vh;
   display: flex;
-  background-color: rgb(224, 255, 255);
+  background-color: rgb(212, 219, 228);
   font-size: 3vh;
+
 }
 
 .leftContent {
@@ -33,9 +34,8 @@
 .rightContent {
   width: 100%;
   text-align: center;
-
   padding-top: 50px;
-  position: relative;
+  overflow-y: scroll;
 }
 
 .pageList {
@@ -86,4 +86,5 @@ p {
 
 .forecastListItem {
   margin-bottom: 50px;
+  border-bottom: solid 1px black;
 }
