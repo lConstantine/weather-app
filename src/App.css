@@ -1,6 +1,7 @@
 .container {
   height: inherit;
   margin: 2px;
+  border: solid 1px rgb(95, 158, 160);
 }
 
 .header {
@@ -25,15 +26,14 @@
 .leftContent {
   width: 100%;
   text-align: center;
-
-  /* background-color: rgba(175, 240, 231, 0.842); */
+  border-right: solid 1px rgb(95, 158, 160);
   padding-top: 50px;
 }
 
 .rightContent {
   width: 100%;
   text-align: center;
-   /* background-color: rgb(176, 196, 222); */
+
   padding-top: 50px;
   position: relative;
 }
