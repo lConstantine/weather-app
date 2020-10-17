@@ -25,8 +25,8 @@ const Forecast = ({
           <h2 id="FH">{`Weather forecast in ${weather.name}, ${weather.sys.country} at:`}</h2>
           <ul>
             {forecast.map((it, idx) => (
-              <li key={idx + 1}>
-                {convertTimestamp(it.dt)}
+              <li className="forecastListItem" key={idx + 1}>
+                <h5 className="date">{convertTimestamp(it.dt)}</h5>
                 <h1>{it.weather[0].main}</h1>
                 <h4>{it.weather[0].description}</h4>
                 <br />
@@ -50,13 +50,13 @@ const Forecast = ({
             ))}
           </ul>
         </div>
-
+      <div className="pagination">
       <Pagination
         forecastsPerPage={forecastsPerPage}
         totalForecasts={totalForecasts}
         paginate={paginate}
       />
-
+      </div>
     </div>
   );
 };
