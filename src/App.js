@@ -7,7 +7,7 @@ import Output from './components/Output'
 
 
 const App = () => {
-  const [weather, setWeather] = useState();
+  const [weather, setWeather] = useState({});
   const [forecast, setForecast] = useState([]);
   const [location, setLocation] = useState("Moscow");
   const [loading, setLoading] = useState(false);
@@ -18,16 +18,20 @@ const App = () => {
 
 
   useEffect(() => {
-    
+
     const fetchData = async () => {
-      setLoading(true);
-      await axios(urlWeather).then((resp) => setWeather(resp.data));
-      await axios(urlForecast).then((resp) => setForecast(resp.data.list));
+      setLoading(true)
+        try {
+          await axios(urlWeather).then((resp) => setWeather({...resp.data}));
+          await axios(urlForecast).then((resp) => setForecast(resp.data.list));
+        } catch(e) {
+          console.log(e)
+        }
+
       setLoading(false);
-    };
+    }
 
     fetchData()
-
 
   }, [location, urlWeather, urlForecast]);
 

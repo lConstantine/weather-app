@@ -12,7 +12,7 @@ const Pagination = ({ forecastsPerPage, totalForecasts, paginate }) => {
       <ul className="pageList">
         {pageNumbers.map((number) => (
           <li key={number}>
-            <a href="!#" onClick={(e) => {e.preventDefault(); paginate(number)}} >
+            <a className="links" href="#!" onClick={(e) => {e.preventDefault(); paginate(number)}} >
               {number}
             </a>
           </li>

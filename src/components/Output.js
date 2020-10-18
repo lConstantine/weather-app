@@ -52,8 +52,7 @@ const Output = ({ weather, forecast, loading }) => {
     let dIndex = parseInt(degrees / 22.5);
     return allDirections[dIndex];
   };
-  console.log('weather', weather)
-  console.log('forecast', forecast)
+
   //Pagination
   const [currentPage, setCurrentPage] = useState(1);
   const [forecastsPerPage] = useState(8);

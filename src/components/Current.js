@@ -2,7 +2,7 @@ import React from 'react'
 
 const Current = ({ weather, convertTimestamp, windDirection, loading }) => {
 
-  if (loading || !weather) {
+  if (loading || (typeof weather.name === 'undefined')) {
     return (
       <h2>Loading...</h2>
     )

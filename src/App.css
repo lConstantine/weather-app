@@ -48,6 +48,7 @@
   height: 25px;
   align-items: center;
   list-style: none;
+  padding: 5px 0;
 }
 
 ul {
@@ -89,10 +90,18 @@ p {
 
 .forecastListItem {
   margin-bottom: 50px;
-  border-bottom: solid 1px black;
+  border-bottom: solid 1px rgb(95, 158, 160);
 }
 
 .pagination {
   position: sticky;
   bottom: 0;
+}
+
+.links {
+  text-decoration: none;
+}
+
+.links:hover {
+  color: red;
 }

@@ -12,7 +12,7 @@ const Forecast = ({
   paginate,
 }) => {
 
-  if (loading || !weather) {
+  if (loading || (typeof weather.name === 'undefined')) {
     return (
       <h2>Loading...</h2>
     )
@@ -21,7 +21,8 @@ const Forecast = ({
   return (
     <div>
 
-        <div>
+        <div >
+
           <h2 id="FH">{`Weather forecast in ${weather.name}, ${weather.sys.country} at:`}</h2>
           <ul>
             {forecast.map((it, idx) => (
