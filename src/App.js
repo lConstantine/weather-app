@@ -22,13 +22,12 @@ const App = () => {
     const fetchData = async () => {
       setLoading(true)
         try {
-          await axios(urlWeather).then((resp) => setWeather({...resp.data}));
-          await axios(urlForecast).then((resp) => setForecast(resp.data.list));
+          await axios(urlWeather).then(resp => setWeather({...resp.data}));
+          await axios(urlForecast).then(resp => setForecast(resp.data.list));
         } catch(e) {
           console.log(e)
         }
-
-      setLoading(false);
+      setLoading(false)
     }
 
     fetchData()
