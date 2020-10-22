@@ -105,3 +105,20 @@ p {
 .links:hover {
   color: red;
 }
+
+@media (max-width: 1024px) {
+
+  html, body > #root {
+    height: 100%;
+    font-family: 'Questrial', sans-serif;
+  }
+
+  .wrapper {
+    display: block;
+    height: 90%;
+  }
+
+  .leftContent {
+    border-bottom: solid 3px rgb(95, 158, 160);
+  }
+ }

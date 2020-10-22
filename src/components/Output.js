@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import Current from './Current'
-import Forecast from "./Forecast";
+import Forecast from "./Forecast"
+
 
 const Output = ({ weather, forecast, loading }) => {
+
   const convertTimestamp = (timestamp) => {
     let d = new Date(timestamp * 1000); // Convert the passed timestamp to milliseconds
     let yyyy = d.getFullYear();
