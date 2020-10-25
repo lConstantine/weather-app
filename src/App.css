@@ -1,7 +1,6 @@
 .container {
 
   border: solid 1px rgb(95, 158, 160);
-  background-color: red;
 }
 
 .header {
@@ -35,7 +34,6 @@
   width: 100%;
   text-align: center;
   padding-top: 50px;
-  overflow-y: scroll;
 }
 
 .pageList {
@@ -104,6 +102,14 @@ p {
 
 .links:hover {
   color: red;
+}
+
+/* media query doesn't work after deployment on Heroku. !important seems to solve the issue here */
+
+ @media only screen and (min-width: 1025px) {
+  .rightContent {
+    overflow-y: scroll;
+  }
 }
 
 @media only screen and (max-width: 1024px) {
