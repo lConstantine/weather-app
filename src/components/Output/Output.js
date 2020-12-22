@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import Current from './Current'
-import Forecast from "./Forecast"
+import { Current } from '../Current/Current'
+import { Forecast } from "../Forecast/Forecast"
 
 
-const Output = ({ weather, forecast, loading }) => {
+export const Output = ({ weather, forecast, loading }) => {
 
   const convertTimestamp = (timestamp) => {
     let d = new Date(timestamp * 1000); // Convert the passed timestamp to milliseconds
@@ -29,6 +29,8 @@ const Output = ({ weather, forecast, loading }) => {
 
     return time;
   };
+
+  
   const windDirection = (degrees) => {
     degrees = parseFloat(degrees);
     if (degrees <= 11.25) return "N";
@@ -55,7 +57,7 @@ const Output = ({ weather, forecast, loading }) => {
     return allDirections[dIndex];
   };
 
-  //Pagination
+  // pagination
   const [currentPage, setCurrentPage] = useState(1);
   const [forecastsPerPage] = useState(8);
 
@@ -69,7 +71,6 @@ const Output = ({ weather, forecast, loading }) => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-
       <div className="wrapper">
 
         <div className="leftContent">
@@ -93,9 +94,7 @@ const Output = ({ weather, forecast, loading }) => {
             paginate={paginate}
           />
         </div>
-      </div>
 
+      </div>
   );
 };
-
-export default Output

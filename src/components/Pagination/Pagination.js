@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Pagination = ({ forecastsPerPage, totalForecasts, paginate }) => {
+export const Pagination = ({ forecastsPerPage, totalForecasts, paginate }) => {
   const pageNumbers = [];
 
   for (let i = 1; i <= Math.ceil(totalForecasts / forecastsPerPage); i += 1) {
@@ -21,5 +21,3 @@ const Pagination = ({ forecastsPerPage, totalForecasts, paginate }) => {
     </nav>
   );
 };
-
-export default Pagination

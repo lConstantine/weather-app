@@ -1,7 +1,7 @@
 import React from 'react'
-import Pagination from './Pagination'
+import { Pagination } from '../Pagination/Pagination'
 
-const Forecast = ({
+export const Forecast = ({
   weather,
   forecast,
   loading,
@@ -61,5 +61,3 @@ const Forecast = ({
     </div>
   );
 };
-
-export default Forecast

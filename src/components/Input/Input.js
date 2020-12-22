@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from 'react'
 
-const Input = ({ setLocation }) => {
+export const Input = ({ setLocation }) => {
   const [city, setCity] = useState("");
   const onClick = () => {
     setLocation(city.trim());
@@ -30,5 +30,3 @@ const Input = ({ setLocation }) => {
     </div>
   );
 };
-
-export default Input

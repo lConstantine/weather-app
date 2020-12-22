@@ -1,5 +1,4 @@
 .container {
-
   border: solid 1px rgb(95, 158, 160);
 }
 
@@ -20,7 +19,6 @@
   display: flex;
   background-color: rgb(212, 219, 228);
   font-size: 3vh;
-
 }
 
 .leftContent {

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Current = ({ weather, convertTimestamp, windDirection, loading }) => {
+export const Current = ({ weather, convertTimestamp, windDirection, loading }) => {
 
   if (loading || (typeof weather.name === 'undefined')) {
     return (
@@ -42,5 +42,3 @@ const Current = ({ weather, convertTimestamp, windDirection, loading }) => {
     </div>
   );
 };
-
-export default Current
